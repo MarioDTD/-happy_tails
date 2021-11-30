@@ -1,0 +1,7 @@
+<h1><%= @shelter.name %></h1>
+<ul>
+<li>Address: <%= @shelter.address %></li>
+<li>Contact: <%= @shelter.contact %></li>
+<li>Email: <%= @shelter.email %></li>
+</ul>
+<%= link_to "Add new pet", new_shelter_pet_path(@shelter)%>
