@@ -23,6 +23,12 @@ class PetsController < ApplicationController
   end
 
   def dogs
+    @pets = Pet.all
+    @pet_breed = []
+
+    @pets.each do |breed|
+      @pet_breed << breed.breed
+    end
     @dogs = Pet.where(animal: "Dog")
   end
 
