@@ -1,20 +1,14 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-4">
-      <form action="<%= dogs_pets_path %>">
-        <select name="breed">
-          <%= @pet_breed.each do |breed| %>
-            <option value="<%= breed %>">
-              <%= breed %>
-            </option>
-          <% end %>
-        </select>
-        <input type="submit">
-      </form>
+      <%= simple_form_for(@pet, method: :get, url: dogs_pets_path)do |f| %>
+        <%= f.input :breed, collection: @pet_breed %>
+        <%= f.submit %>
+      <% end %>
     </div>
     <div class="col-8">
       <%= render partial: "shared/card", locals: {pets: @dogs}%>
-      
+
     </div>
   </div>
 </div>

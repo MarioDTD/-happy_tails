@@ -22,13 +22,14 @@ class PetsController < ApplicationController
   end
 
   def dogs
+    @dogs = Pet.where(animal: "Dog")
+    @pet = Pet.new
     @pets = Pet.all
     @pet_breed = []
 
     @pets.each do |breed|
       @pet_breed << breed.breed
     end
-    @dogs = Pet.where(animal: "Dog")
   end
 
   def cats
