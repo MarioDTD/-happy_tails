@@ -22,19 +22,19 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
   end
 
-  def dog
+  def dogs
     @dogs = Pet.where(animal: "Dog")
+  end
+
+
+  def cats
+    @cats = Pet.where(animal: "Cat")
   end
 
   def update
     @pet = Pet.find(params[:id])
     @pet.update(pet_params)
     redirect_to pet_path(@pet)
-  end
-
-  def cat
-    @cats = Pet.where(animal: "Cat")
-
   end
 
   private
