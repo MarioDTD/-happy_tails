@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :pets do
     collection do
       get :dog
+      get :cat
     end
   end
 end
