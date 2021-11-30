@@ -25,4 +25,10 @@
     <%= f.submit %>
   <% end %>
 </div>
-  
+
+<li class="list-group-item">
+      <%= link_to "Remove",
+                  pet_path(@pet),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+    </li>

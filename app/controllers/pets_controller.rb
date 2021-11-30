@@ -26,7 +26,6 @@ class PetsController < ApplicationController
     @dogs = Pet.where(animal: "Dog")
   end
 
-
   def cats
     @cats = Pet.where(animal: "Cat")
   end
@@ -35,6 +34,13 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
     @pet.update(pet_params)
     redirect_to pet_path(@pet)
+  end
+
+  def destroy
+    @pet = Pet.find(params[:id])
+    @pet.destroy
+    redirect_to pets_path
+    # redirect to the shelter page listing of pets
   end
 
   private
