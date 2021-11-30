@@ -1,6 +1,7 @@
 <img src= <%= @pet.image_url %> />
 <h1><%= @pet.name %></h1>
 <ul>
+<%= button_to 'Like', pet_likes_path(@pet), method: :post %>
 <li>Breed: <%= @pet.breed %></li>
 <li>Color: <%= @pet.color %></li>
 <li>Adoption Fee: $<%= @pet.fee %></li>

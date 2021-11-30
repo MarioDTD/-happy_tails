@@ -4,7 +4,7 @@
       <div class="card" style="width: 14rem; ">
         <img src="<%= pet.image_url%>" class="card-img-top" alt="<%= pet.name%>">
         <div class="card-body">
-         <h5 class="card-title text-center"><%= link_to pet.name%></h5>
+         <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet) %></h5>
          <p class="card-text text-center"><%= pet.breed %><br>$<%= pet.fee %></p>
          </div>
        </div>

@@ -8,4 +8,8 @@ Rails.application.routes.draw do
       get :cats
     end
   end
+    resources :pets do
+      resources :likes do
+    end
+  end
 end
