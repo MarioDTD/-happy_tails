@@ -32,7 +32,11 @@ gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'devise'
+<<<<<<< HEAD
 gem 'faker'
+=======
+gem 'pundit'
+>>>>>>> 50527c269e3cc5dc19f24e6d12a06a572c3057f8
 
 group :development, :test do
   gem 'pry-byebug'
