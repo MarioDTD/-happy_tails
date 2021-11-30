@@ -10,7 +10,7 @@ class CreatePets < ActiveRecord::Migration[6.1]
       t.string :sterilised
       t.string :image_url
       t.boolean :adopted, default: false
-      t.references :user, null: false, foreign_key: true
+      t.references :shelter, null: false, foreign_key: true
 
       t.timestamps
     end
