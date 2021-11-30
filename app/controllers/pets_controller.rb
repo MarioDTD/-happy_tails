@@ -5,13 +5,13 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
-  end 
+  end
 
-  def dog
+  def dogs
     @dogs = Pet.where(animal: "Dog")
   end
 
-  def cat
+  def cats
     @cats = Pet.where(animal: "Cat")
   end
 end
