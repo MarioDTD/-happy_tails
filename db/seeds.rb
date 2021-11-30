@@ -54,7 +54,7 @@ end
 5.times do
   Pet.create!(
     name: Faker::Name.first_name,
-    animal: "Dog",
+    animal: "Cat",
     breed: Faker::Creature::Cat.breed,
     color: Faker::Color.color_name,
     fee: rand(100..500),
