@@ -1,0 +1,7 @@
+<%= simple_form_for @shelter do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :contact %>
+  <%= f.input :email %>
+  <%= f.submit "Create shelter", class: "btn btn-primary" %>
+<% end %>
