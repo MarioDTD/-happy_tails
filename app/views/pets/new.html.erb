@@ -1,0 +1,11 @@
+<%= simple_form_for [@shelter, @pet] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :animal %>
+  <%= f.input :breed %>
+  <%= f.input :color %>
+  <%= f.input :fee %>
+  <%= f.input :age %>
+  <%= f.input :sterilised %>
+  <%= f.input :image_url %>
+  <%= f.submit "Create new listing", class: "btn btn-primary" %>
+<% end %>
