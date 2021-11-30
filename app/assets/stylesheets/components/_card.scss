@@ -19,6 +19,15 @@
   grid-gap: 16px;
 }
 
+.card-link {
+  color: white;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: white;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
@@ -52,4 +61,12 @@
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+.card-text {
+  font-size: 12px;
+}
+
+.card > img {
+  height: 10rem;
 }
