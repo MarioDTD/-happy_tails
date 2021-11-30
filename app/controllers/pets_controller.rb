@@ -18,15 +18,9 @@ class PetsController < ApplicationController
     # remember to INCLUDE redirect to the shelter/show pet page after this pet is created
   end
 
-  private
-
-  def pet_params
-    params.require(:pet).permit(:name, :animal, :breed, :color, :fee, :age, :sterilised, :photo)
-  end
-  
   def show
     @pet = Pet.find(params[:id])
-  end 
+  end
 
   def dog
     @dogs = Pet.where(animal: "Dog")
@@ -37,15 +31,15 @@ class PetsController < ApplicationController
     @pet.update(pet_params)
     redirect_to pet_path(@pet)
   end
-  
+
   def cat
     @cats = Pet.where(animal: "Cat")
-    
+
   end
-  
+
   private
-  
+
   def pet_params
-    params.require(:pet).permit(:name, :breed, :color, :fee, :age, :sterilised)
+    params.require(:pet).permit(:name, :animal, :breed, :color, :fee, :age, :sterilised, :photo)
   end
 end
