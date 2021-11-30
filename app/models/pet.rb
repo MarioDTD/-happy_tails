@@ -5,4 +5,5 @@ class Pet < ApplicationRecord
   validates :animal, presence: true
   validates :breed, presence: true
   validates :fee, presence: true
+  validates :image_url, presence: true
 end
