@@ -1,6 +1,4 @@
-<h1> All Pets
-</h1>
-<% @pets.each do |pet| %>
-  <%= pet.name %>
-  <%= pet.breed %>
-<% end %>
+<h1> All Pets</h1>
+
+
+<%= link_to "Dogs", dog_pets_path %> | <%= link_to "Cats", cat_pets_path %>
