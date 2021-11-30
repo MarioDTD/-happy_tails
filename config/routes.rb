@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :shelters, only: [:show, :new, :create] do
     resources :pets, only: [:new, :create]
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end
