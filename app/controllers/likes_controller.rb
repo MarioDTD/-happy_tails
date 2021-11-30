@@ -1,10 +1,11 @@
 class LikesController < ApplicationController
   def create
-    @pet.likes.create(user_id: current_user.id)
-    redirect_to pet_path(@pet)
-  end
-
-  def find_pet
-    @pet = Pet.find(params[:id])
+    @pet = Pet.find(params[:pet_id])
+    @user = current_user
+    likes = {user: @user, pet:@pet}
+    @like = Like.new(likes)
+    if @like.save
+      redirect_to pet_path(@pet)
+    end
   end
 end

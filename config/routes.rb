@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: "pets#index"
   resources :pets, except: [:new, :create] do
+    resources :likes
     collection do
         get :dogs
         get :cats
