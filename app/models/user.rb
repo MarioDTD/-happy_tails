@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :shelter
   has_many :likes
+  has_many :pets, through: :likes
 
   def admin?
     self.admin == true

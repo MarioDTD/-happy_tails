@@ -2,5 +2,6 @@
 
 <%= link_to "Create New Shelter", new_shelter_path %>
 <%= link_to "Dogs", dogs_pets_path %> | <%= link_to "Cats", cats_pets_path %>
-
+<%= link_to "Liked pets", likes_path %>
 <%= render partial: "shared/card", locals: {pets: @pets}%>
+
