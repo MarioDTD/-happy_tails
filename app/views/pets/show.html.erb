@@ -28,17 +28,19 @@
 </ul>
 </div>
 
-<% if current_user.shelter == @pet.shelter %>
-  <div class="container">
-    <%= simple_form_for(@pet) do |f| %>
-      <%= f.input :name, required: false %>
-      <%= f.input :breed, required: false %>
-      <%= f.input :color, required: false %>
-      <%= f.input :fee, required: false %>
-      <%= f.input :age, required: false %>
-      <%= f.input :sterilised, collection: ["Yes", "No"], required: false %>
-      <%= f.submit %>
-    <% end %>
+<% if !current_user.nil? %>
+  <% if current_user.shelter == @pet.shelter %>
+    <div class="container">
+      <%= simple_form_for(@pet) do |f| %>
+        <%= f.input :name, required: false %>
+        <%= f.input :breed, required: false %>
+        <%= f.input :color, required: false %>
+        <%= f.input :fee, required: false %>
+        <%= f.input :age, required: false %>
+        <%= f.input :sterilised, collection: ["Yes", "No"], required: false %>
+        <%= f.submit %>
+      <% end %>
+  <% end %>
   </div>
 
   <li class="list-group-item">
