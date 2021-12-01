@@ -1,7 +1,13 @@
-<%= simple_form_for @shelter do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :contact %>
-  <%= f.input :email %>
-  <%= f.submit "Create shelter", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 mx-auto">
+      <%= simple_form_for @shelter do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :contact %>
+        <%= f.input :email %>
+        <%= f.submit "Create shelter", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
