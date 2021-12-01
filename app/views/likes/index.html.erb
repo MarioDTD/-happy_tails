@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
   <div class="row">
     <div class="col-4">
@@ -17,3 +18,8 @@
 </div>
 
 
+=======
+<% @likes.each do |like| %>
+  <%= link_to like.pet.name, pet_path(like.pet) %>
+<% end %>
+>>>>>>> 29f0c36e4bec6b001a4ce0650b444b14e7c7fe49

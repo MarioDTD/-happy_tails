@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+<<<<<<< HEAD
   # def like
   #   @pet = Pet.find(params[:id])
   #   Like.create(user_id: current_user.id, pet_id: @pet.id)
@@ -30,5 +31,28 @@ class LikesController < ApplicationController
 
   def like_params
     params.require(:like).permit(:pet_id, :user_id)
+=======
+  def index
+    @likes = current_user.likes
+  end
+
+  def create
+    @pet = Pet.find(params[:pet_id])
+    @like = current_user.likes.new
+    @like.pet = @pet
+    @like.save!
+    # if!@like.save
+    #   flash[:notice] = @like.errors.full_messages.to_sentence
+    # end
+    redirect_back(fallback_location: root_path)
+  end
+  
+  def destroy
+    @pet = Pet.find(params[:pet_id])
+    @like = current_user.likes.find((current_user.like_ids & @pet.like_ids).first)
+    @like.destroy
+    # redirect_to pet_path(@pet)
+    redirect_back(fallback_location: root_path)
+>>>>>>> 29f0c36e4bec6b001a4ce0650b444b14e7c7fe49
   end
 end
