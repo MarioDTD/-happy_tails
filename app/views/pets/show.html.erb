@@ -1,5 +1,7 @@
 <img src= <%= @pet.image_url %> />
 <h1><%= @pet.name %></h1>
+<%= @pet.likes %>
+<%= link_to "Like", pet_likes_path(@pet), method: :post %>
 <ul>
 <li>Breed: <%= @pet.breed %></li>
 <li>Color: <%= @pet.color %></li>
@@ -15,7 +17,7 @@
 <li>Email: <%= @pet.shelter.email %></li>
 </ul>
 
-<% if current_user.admin? %>
+<% if current_user&.admin? %>
   <div class="container">
     <%= simple_form_for(@pet) do |f| %>
       <%= f.input :name, required: false %>
