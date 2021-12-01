@@ -1,10 +1,12 @@
-<h1 class="text-center"><%= @shelter.name %></h1>
-<ul>
-  <li>Address: <%= @shelter.address %></li>
-  <li>Contact: <%= @shelter.contact %></li>
-  <li>Email: <%= @shelter.email %></li>
-  <%= link_to "Add new pet", new_shelter_pet_path(@shelter)%>
-</ul>
+<div class="container">
+  <h1 class="text-center"><%= @shelter.name %></h1>
+  <ul>
+    <li>Address: <%= @shelter.address %></li>
+    <li>Contact: <%= @shelter.contact %></li>
+    <li>Email: <%= @shelter.email %></li>
+    <%= link_to "Add new pet", new_shelter_pet_path(@shelter)%>
+  </ul>
+</div>
 
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
