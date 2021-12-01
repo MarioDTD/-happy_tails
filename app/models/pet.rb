@@ -7,7 +7,4 @@ class Pet < ApplicationRecord
   validates :fee, presence: true
   validates :image_url, presence: true
 
-  scope :by_breed, -> (pet_breed) do
-    where("breed = ?", "#{pet_breed}")
-  end
 end

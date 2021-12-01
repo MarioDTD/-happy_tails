@@ -24,7 +24,13 @@ class PetsController < ApplicationController
   end
 
   def dogs
-    @dogs = Pet.where(animal: "Dog")
+    if params[:pet_breed].present?
+      @dogs = Pet.where(breed: params[:pet_breed])
+    else
+      @dogs = Pet.where(animal: "Dog")
+    end
+
+    # @dogs = apply_scopes(Pet).where(animal: "Dog")
     @pets = @dogs.all
     @pet_breed = []
 
@@ -34,7 +40,13 @@ class PetsController < ApplicationController
   end
 
   def cats
-    @cats = Pet.where(animal: "Cat")
+    if params[:pet_breed].present?
+      @cats = Pet.where(breed: params[:pet_breed])
+    else
+      @cats = Pet.where(animal: "Cat")
+    end
+
+    # @cats = Pet.where(animal: "Cat")
     @pets = @cats.all
     @pet_breed = []
 
