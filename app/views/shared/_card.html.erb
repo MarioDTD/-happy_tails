@@ -1,7 +1,6 @@
-<div class="cards">
+<div class="cards mt-3">
   <% pets.each do |pet| %>
-    <div>
-      <div class="card" style="width: 14rem; ">
+      <div class="card">
         <img src="<%= pet.image_url%>" class="card-img-top" alt="<%= pet.name%>">
         <div class="card-body">
          <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet) %></h5>
@@ -9,12 +8,11 @@
         </div>
         <% if !current_user.nil? %>
           <% if (current_user.like_ids & pet.like_ids).any? %>
-            <%= link_to icon("fas","heart"), pet_like_path(pet, Like.find_by_pet_id(pet)), method: :delete %>
+            <%= link_to icon("fas","heart"), pet_like_path(pet, Like.find_by_pet_id(pet)), method: :delete,  class: "ml-2" %>
           <% else %>
-            <%= link_to icon("far","heart"), pet_likes_path(pet.id), method: :post %>
+            <%= link_to icon("far","heart"), pet_likes_path(pet.id), method: :post, class: "ml-2" %>
           <% end %>
         <% end %>
        </div>
-    </div>
   <% end %>
 </div>
