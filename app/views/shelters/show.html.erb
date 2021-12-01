@@ -1,14 +1,34 @@
-<h1><%= @shelter.name %></h1>
+<h1 class="text-center"><%= @shelter.name %></h1>
 <ul>
-<li>Address: <%= @shelter.address %></li>
-<li>Contact: <%= @shelter.contact %></li>
-<li>Email: <%= @shelter.email %></li>
+  <li>Address: <%= @shelter.address %></li>
+  <li>Contact: <%= @shelter.contact %></li>
+  <li>Email: <%= @shelter.email %></li>
+  <%= link_to "Add new pet", new_shelter_pet_path(@shelter)%>
 </ul>
-<% @shelter.pets.each do |pet| %>
-  <%= pet.name %>
-<% end %>
-<%= link_to "Add new pet", new_shelter_pet_path(@shelter)%>
 
 <% if flash[:notice] %>
-<div class="notice"><%= flash[:notice] %></div>
+  <div class="notice"><%= flash[:notice] %></div>
 <% end %>
+
+<div class="container justify-content-center mt-3">
+  <div class="cards">
+    <% @shelter.pets.each do |pet| %>
+      <div>
+        <div class="card" style="width: 14rem; ">
+          <img src="<%= pet.image_url%>" class="card-img-top" alt="<%= pet.name%>">
+          <div class="card-body">
+          <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet) %></h5>
+          <p class="card-text text-center"><%= pet.breed %><br>$<%= pet.fee %></p>
+          </div>
+          <% if !current_user.nil? %>
+            <% if (current_user.like_ids & pet.like_ids).any? %>
+              <%= link_to icon("fas","heart"), pet_like_path(pet, Like.find_by_pet_id(pet)), method: :delete %>
+            <% else %>
+              <%= link_to icon("far","heart"), pet_likes_path(pet.id), method: :post %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
