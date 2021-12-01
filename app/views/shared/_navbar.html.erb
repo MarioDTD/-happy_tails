@@ -26,8 +26,7 @@
             <% if current_user.admin? %>
               <%= link_to "Create new shelter", new_shelter_path, class: "dropdown-item" %>
             <% end %>
-            <%# throw in path to my liked pets when done %>
-            <%= link_to "My liked pets", href="#", class: "dropdown-item" %>
+            <%= link_to "My liked pets", likes_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

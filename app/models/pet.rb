@@ -7,7 +7,5 @@ class Pet < ApplicationRecord
   validates :fee, presence: true
   validates :image_url, presence: true
 
-  def liked?(user)
-    likes.find { |like| like.user_id == user.id }
-  end
+
 end

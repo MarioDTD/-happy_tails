@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-<div class="container">
-  <div class="row">
-    <div class="col-4">
-        <div class="cards">
-        <% @likes.each do |like| %>
-          <div class="card" style="width: 14rem; ">
-            <img src="<%= like.pet.image_url%>" class="card-img-top" alt="<%= like.pet.name%>">
-            <div class="card-body">
-              <h5 class="card-title text-center"><%= link_to like.pet.name, pet_path(like) %></h5>
-              <p class="card-text text-center"><%= like.pet.breed %><br>$<%= like.pet.fee %></p>
-            </div>
-          </div>
-        <% end %>
-        </div>
-      </div>
-    </div>
-</div>
-
-
-=======
 <% @likes.each do |like| %>
   <%= link_to like.pet.name, pet_path(like.pet) %>
 <% end %>
->>>>>>> 29f0c36e4bec6b001a4ce0650b444b14e7c7fe49
