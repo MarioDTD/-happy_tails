@@ -5,4 +5,5 @@ class Shelter < ApplicationRecord
   validates :address, presence: true
   validates :contact, presence: true
   validates :email, presence: true
+  validates :user_id, uniqueness: true
 end

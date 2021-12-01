@@ -1,7 +1,16 @@
-<img src= <%= @pet.image_url %> />
+<img src="<%= @pet.image_url %>">
 <h1><%= @pet.name %></h1>
-<%= @pet.likes %>
-<%= link_to "Like", pet_likes_path(@pet), method: :post %>
+
+<% if !current_user.nil? %>
+  <% if (current_user.like_ids & @pet.like_ids).any? %>
+    <%= link_to icon("fas","heart"), pet_like_path(@pet, Like.find_by_pet_id(@pet)), method: :delete %>
+  <% else %>
+    <%= link_to icon("far","heart"), pet_likes_path(@pet), method: :post %>
+  <% end %>
+<% end %>
+
+
+
 <ul>
 <li>Breed: <%= @pet.breed %></li>
 <li>Color: <%= @pet.color %></li>
@@ -11,7 +20,7 @@
 </ul>
 <h2>Shelter Details</h2>
 <ul>
-<li>Name: <%= @pet.shelter.name %></li>
+<li>Name: <%= link_to @pet.shelter.name, shelter_path(@pet) %></li>
 <li>Address: <%= @pet.shelter.address %></li>
 <li>Contact: <%= @pet.shelter.contact %></li>
 <li>Email: <%= @pet.shelter.email %></li>

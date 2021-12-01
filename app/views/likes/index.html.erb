@@ -1,0 +1,3 @@
+<% @likes.each do |like| %>
+  <%= link_to like.pet.name, pet_path(like.pet) %>
+<% end %>
