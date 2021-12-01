@@ -28,15 +28,15 @@
 </ul>
 </div>
 
-<% if current_user&.admin? %>
+<% if current_user.shelter == @pet.shelter %>
   <div class="container">
     <%= simple_form_for(@pet) do |f| %>
       <%= f.input :name, required: false %>
-      <%= f.input :breed, required: false %>
+      <%= f.input :breed, collection: ["Cat", "Dog"], required: false %>
       <%= f.input :color, required: false %>
       <%= f.input :fee, required: false %>
       <%= f.input :age, required: false %>
-      <%= f.input :sterilised, required: false %>
+      <%= f.input :sterilised, collection: ["Yes", "No"], required: false %>
       <%= f.submit %>
     <% end %>
   </div>
