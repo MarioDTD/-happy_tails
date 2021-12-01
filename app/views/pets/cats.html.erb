@@ -5,7 +5,7 @@
         <label for="breed">Breed</label>
           <select name="pet_breed">
             <% @pet_breed.each.uniq do |breed| %>
-              <option><%= breed %></option>
+              <option value="<%= breed %>"><%= breed %></option>
             <% end %>
           </select>
         <input name="Submit" type="submit" value="Search"/>

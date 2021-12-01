@@ -3,11 +3,11 @@
     <div class="col-4">
       <form action="#" method="get">
         <label for="breed">Breed</label>
-        <select name="pet_breed">
-          <% @pet_breed.each.uniq do |breed| %>
-            <option value="<%= breed %>"><%= breed %></option>
-          <% end %>
-        </select>
+          <select name="pet_breed">
+            <% @pet_breed.each.uniq do |breed| %>
+              <option value="<%= breed %>"><%= breed %></option>
+            <% end %>
+          </select>
         <input name="Submit" type="submit" value="Search"/>
       </form>
     </div>
