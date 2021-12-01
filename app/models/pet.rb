@@ -6,4 +6,12 @@ class Pet < ApplicationRecord
   validates :breed, presence: true
   validates :fee, presence: true
   validates :image_url, presence: true
+
+  scope :pet_breed, -> (given_keyword) do
+    sql_query = " \
+      pets.breed ILIKE ? \
+    "
+
+    where(sql_query, "%#{given_keyword}%")
+  end
 end

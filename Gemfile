@@ -34,6 +34,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'faker'
 gem 'pundit'
+gem 'has_scope'
 
 group :development, :test do
   gem 'pry-byebug'
