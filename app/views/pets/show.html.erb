@@ -20,7 +20,7 @@
 </ul>
 <h2>Shelter Details</h2>
 <ul>
-<li>Name: <%= link_to @pet.shelter.name, shelter_path(@pet) %></li>
+<li>Name: <%= link_to @pet.shelter.name, shelter_path(@pet.shelter) %></li>
 <li>Address: <%= @pet.shelter.address %></li>
 <li>Contact: <%= @pet.shelter.contact %></li>
 <li>Email: <%= @pet.shelter.email %></li>
