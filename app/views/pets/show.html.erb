@@ -32,7 +32,7 @@
   <div class="container">
     <%= simple_form_for(@pet) do |f| %>
       <%= f.input :name, required: false %>
-      <%= f.input :breed, collection: ["Cat", "Dog"], required: false %>
+      <%= f.input :breed, required: false %>
       <%= f.input :color, required: false %>
       <%= f.input :fee, required: false %>
       <%= f.input :age, required: false %>
