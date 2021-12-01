@@ -4,4 +4,11 @@
 <li>Contact: <%= @shelter.contact %></li>
 <li>Email: <%= @shelter.email %></li>
 </ul>
+<% @shelter.pets.each do |pet| %>
+  <%= pet.name %>
+<% end %>
 <%= link_to "Add new pet", new_shelter_pet_path(@shelter)%>
+
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
