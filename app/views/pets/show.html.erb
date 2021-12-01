@@ -35,3 +35,9 @@
                     data: { confirm: "Are you sure?" } %>
       </li>
 <% end %>
+
+
+
+
+
+<%= button_to @pet.liked?(current_user) ? "❤️" : "♡", pet_like_path(@pet), method: "post", id: 'like_button' %>
