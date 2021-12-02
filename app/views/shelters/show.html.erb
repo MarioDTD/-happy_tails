@@ -1,10 +1,10 @@
 <div class="container">
   <h1 class="text-center"><%= @shelter.name %></h1>
-  <ul>
+  <ul class= "text-center list-unstyled">
     <li>Address: <%= @shelter.address %></li>
     <li>Contact: <%= @shelter.contact %></li>
     <li>Email: <%= @shelter.email %></li>
-    <%= link_to "Add new pet", new_shelter_pet_path(@shelter), class: "btn btn-primary"%>
+    <%= link_to "Add new pet", new_shelter_pet_path(@shelter), class: "btn btn-primary mt-3"%>
   </ul>
 </div>
 
@@ -19,9 +19,7 @@
     <% @shelter.pets.each do |pet| %>
       <% if pet.adopted == false %>
         <div class="card">
-          <% pet.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"card-img-top" %>
-          <% end %>
+          <%= cl_image_tag pet.photos.first.key, height: 300, width: 400, crop: :fill, class:"card-img-top" %>
           <div class="card-body">
             <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet) %></h5>
             <p class="card-text text-center"><%= pet.breed %><br>$<%= pet.fee %></p>
