@@ -1,5 +1,5 @@
 <div class="cards mt-3">
-  <% pets.each do |pet| %>
+  <% @pets.each do |pet| %>
       <div class="card">
         <% pet.photos.each do |photo| %>
           <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>

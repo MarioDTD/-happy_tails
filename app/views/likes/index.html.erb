@@ -1,3 +1,20 @@
-<% @likes.each do |like| %>
-  <%= link_to like.pet.name, pet_path(like.pet) %>
-<% end %>
+<div class="container justify-content-center mt-3">
+  <div class="cards mt-3">
+    <% @likes.each do |like| %>
+        <div class="card">
+          <img src="<%= like.pet.image_url%>" class="card-img-top" alt="<%= like.pet.name%>">
+          <div class="card-body">
+          <h5 class="card-title text-center"><%= link_to like.pet.name, pet_path(like.pet) %></h5>
+          <p class="card-text text-center"><%= like.pet.breed %><br>$<%= like.pet.fee %></p>
+          </div>
+          <% if !current_user.nil? %>
+            <% if (current_user.like_ids & like.pet.like_ids).any? %>
+              <%= link_to icon("fas","heart"), pet_like_path(like.pet, Like.find_by_pet_id(like.pet)), method: :delete,  class: "ml-2" %>
+            <% else %>
+              <%= link_to icon("far","heart"), pet_likes_path(like.pet.id), method: :post, class: "ml-2" %>
+            <% end %>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+</div>

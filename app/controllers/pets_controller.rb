@@ -1,5 +1,6 @@
 class PetsController < ApplicationController
-  has_scope :pet_breed
+  has_scope :breed
+  has_scope :animal
 
   def index
     @pets = Pet.all
@@ -24,15 +25,16 @@ class PetsController < ApplicationController
   end
 
   def dogs
-    @all_dogs = Pet.where(animal: "Dog")
-    if params[:pet_breed].present?
-      @dogs = Pet.where(breed: params[:pet_breed])
-    else
-      @dogs = @all_dogs
-    end
 
+    # if params[:gender].present?
+      @pets = Pet.animal("dog").breed(params[:breed])
+    # else
+    #   @pets = Pet.animal("dog").breed(params[:breed])
+    # end
+
+    # @all_dogs = Pet.where(animal: "Dog")
     # @dogs = apply_scopes(Pet).where(animal: "Dog")
-    @pets = @all_dogs.all
+    # @pets = @all_dogs.all
     @pet_breed = []
 
     @pets.each do |breed|
@@ -41,20 +43,21 @@ class PetsController < ApplicationController
   end
 
   def cats
-    @all_cats = Pet.where(animal: "Cat")
-    if params[:pet_breed].present?
-      @cats = Pet.where(breed: params[:pet_breed])
-    else
-      @cats = @all_cats
-    end
+    @pets = Pet.animal('cat')
+    # @all_cats = Pet.where(animal: "Cat")
+    # if params[:pet_breed].present?
+    #   @cats = Pet.where(breed: params[:pet_breed])
+    # else
+    #   @cats = @all_cats
+    # end
 
     # @cats = Pet.where(animal: "Cat")
-    @pets = @all_cats.all
-    @pet_breed = []
+    # @pets = @all_cats.all
+    # @pet_breed = []
 
-    @pets.each do |breed|
-      @pet_breed << breed.breed
-    end
+    # @pets.each do |breed|
+    #   @pet_breed << breed.breed
+    # end
   end
 
   def update
@@ -73,6 +76,6 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :animal, :breed, :color, :fee, :age, :sterilised, :image_url)
+    params.require(:pet).permit(:name, :animal, :breed, :color, :fee, :age, :sterilised, photos: [])
   end
 end
