@@ -26,11 +26,11 @@ class PetsController < ApplicationController
 
   def dogs
 
-    if params[:gender].present?
-      @pets = Pet.animal("dog").gender(params[:gender]).breed(params[:breed])
-    else
+    # if params[:gender].present?
       @pets = Pet.animal("dog").breed(params[:breed])
-    end
+    # else
+    #   @pets = Pet.animal("dog").breed(params[:breed])
+    # end
 
     # @all_dogs = Pet.where(animal: "Dog")
     # @dogs = apply_scopes(Pet).where(animal: "Dog")
