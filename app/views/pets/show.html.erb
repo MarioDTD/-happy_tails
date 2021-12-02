@@ -53,13 +53,10 @@
         <%= f.input :photos, as: :file, input_html: { multiple: true }, required: false %>
         <%= f.submit %>
       <% end %>
-  <% end %>
-  </div>
-
-  <li class="list-group-item">
-        <%= link_to "Remove",
+      <%= link_to "Unlist Pet",
                     pet_path(@pet),
                     method: :delete,
-                    data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-      </li>
+                    data: { confirm: "Are you sure?" }, class: "btn btn-danger mt-2" %>
+  <% end %>
+  </div>
 <% end %>
