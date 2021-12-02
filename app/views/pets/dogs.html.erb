@@ -2,17 +2,28 @@
   <div class="row">
     <div class="col-4">
       <form action="#" method="get">
+        <div class="col">
         <label for="breed">Breed</label>
-          <select name="breed">
-            <% @pet_breed.each.uniq do |breed| %>
-              <option value="<%= breed %>"><%= breed %></option>
+            <select name="breed">
+                <option value="">--- select breed ---</option>
+              <% @pet_breed.each.uniq do |breed| %>
+                <option value="<%= breed %>"><%= breed %></option>
             <% end %>
           </select>
+        </div>
+        <div class="col">
           <select name="gender">
             <option value=""></option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
+        </div>
+      <div class="col">
+        <input type="number" placeholder="Min age" name="age[min_age]" value="<%= @min_age %>">
+      </div>
+       <div class="col">
+        <input type="number" placeholder="Max age" name="age[max_age]" value="<%= @max_age %>">
+        </div>
         <input name="Submit" type="submit" value="Search"/>
       </form>
     </div>

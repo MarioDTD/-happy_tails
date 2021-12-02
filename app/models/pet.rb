@@ -7,11 +7,11 @@ class Pet < ApplicationRecord
   validates :fee, presence: true
   validates :image_url, presence: true
 
-  scope :animal, -> (animal) do
+  scope :animal, -> (type) do
     sql_query = " \
       pets.animal ILIKE ? \
     "
-    where(sql_query, "%#{animal}%")
+    where(sql_query, "%#{type}%")
   end
 
   scope :breed, -> (breed) do
@@ -25,5 +25,10 @@ class Pet < ApplicationRecord
     sql_query = " |
       pets.gender ILIKE ? \
     "
+    where(sql_query, "%#{gender}%")
+  end
+
+  scope :age, -> (min_age, max_age) do
+    where('age >= ? AND age <= ?', min_age.to_i, max_age.to_i)
   end
 end
