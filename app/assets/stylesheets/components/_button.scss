@@ -16,13 +16,15 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #1edd88;
+  background: #77d4d4;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: #1bcb7f;
+  background: #2fd4d4;
   color: white;
+  transition: 0.5s;
+  transform: translateY(0) scale(1.1);
 }
 
 .btn-gradient {
