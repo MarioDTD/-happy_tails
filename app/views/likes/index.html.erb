@@ -2,7 +2,9 @@
   <div class="cards mt-3">
     <% @likes.each do |like| %>
         <div class="card">
-          <img src="<%= like.pet.image_url%>" class="card-img-top" alt="<%= like.pet.name%>">
+          <% like.pet.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
+          <% end %>
           <div class="card-body">
           <h5 class="card-title text-center"><%= link_to like.pet.name, pet_path(like.pet) %></h5>
           <p class="card-text text-center"><%= like.pet.breed %><br>$<%= like.pet.fee %></p>
