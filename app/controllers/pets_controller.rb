@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
   has_scope :breed
   has_scope :age, using: %i[min_age max_age], type: :hash
+  has_scope :gender
 
   def index
     @pets = Pet.all

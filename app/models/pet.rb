@@ -23,7 +23,7 @@ class Pet < ApplicationRecord
   end
 
   scope :gender, -> (gender) do
-    sql_query = " |
+    sql_query = " \
       pets.gender ILIKE ? \
     "
     where(sql_query, "%#{gender}%")
