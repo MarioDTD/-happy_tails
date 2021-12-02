@@ -1,4 +1,4 @@
-<div class="container carousel-slide">
+<div class="container">
 
   <% @pet.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
