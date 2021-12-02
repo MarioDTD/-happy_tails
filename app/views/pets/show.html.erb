@@ -1,5 +1,8 @@
 <div class="container">
   <img src="<%= @pet.image_url %>">
+  <% @pet.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
   <h1><%= @pet.name %></h1>
 
   <% if !current_user.nil? %>
@@ -38,6 +41,7 @@
         <%= f.input :fee, required: false %>
         <%= f.input :age, required: false %>
         <%= f.input :sterilised, collection: ["Yes", "No"], required: false %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit %>
       <% end %>
   <% end %>
