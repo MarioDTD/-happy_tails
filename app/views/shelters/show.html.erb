@@ -12,17 +12,19 @@
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
+
 <div class="container justify-content-center mt-3">
+  <h3 class= "text-center">Available</h3>
   <div class="cards">
     <% @shelter.pets.each do |pet| %>
-      <div>
-        <div class="card" style="width: 14rem; ">
-        <% pet.photos.each do |photo| %>
+      <% if pet.adopted == false %>
+        <div class="card">
+          <% pet.photos.each do |photo| %>
           <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"card-img-top" %>
-        <% end %>
+          <% end %>
           <div class="card-body">
-          <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet) %></h5>
-          <p class="card-text text-center"><%= pet.breed %><br>$<%= pet.fee %></p>
+            <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet) %></h5>
+            <p class="card-text text-center"><%= pet.breed %><br>$<%= pet.fee %></p>
           </div>
           <% if !current_user.nil? %>
             <% if (current_user.like_ids & pet.like_ids).any? %>
@@ -32,7 +34,35 @@
             <% end %>
           <% end %>
         </div>
-      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+<div class="container justify-content-center">
+<h3 class= "text-center mt-3">Adopted</h3>
+  <div class="cards">
+    <% @shelter.pets.each do |pet| %>
+      <% if pet.adopted == true %>
+          <% pet.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"card-img-top" %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet) %></h5>
+            <p class="card-text text-center"><%= pet.breed %><br>$<%= pet.fee %></p>
+          </div>
+          <% if !current_user.nil? %>
+            <% if (current_user.like_ids & pet.like_ids).any? %>
+              <%= link_to icon("fas","heart"), pet_like_path(pet, Like.find_by_pet_id(pet)), method: :delete %>
+            <% else %>
+              <%= link_to icon("far","heart"), pet_likes_path(pet.id), method: :post %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

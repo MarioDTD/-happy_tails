@@ -18,12 +18,14 @@
 
 <ul>
 <li>Breed: <%= @pet.breed %></li>
+<li>Gender: <%= @pet.gender %></li>
 <li>Color: <%= @pet.color %></li>
 <li>Gender: <%= @pet.gender %></li>
 <li>Adoption Fee: $<%= @pet.fee %></li>
 <li>Age: <%= @pet.age %> years old</li>
 <li>Sterilised: <%= @pet.sterilised %></li>
 <li>Overview: <%= @pet.overview %></li>
+<li><%= @pet.adopted ? "Status: Adopted" : "Status: Available" %></li>
 </ul>
 <h2>Shelter Details</h2>
 <ul>
@@ -45,6 +47,7 @@
         <%= f.input :gender, required: false %>
         <%= f.input :fee, required: false %>
         <%= f.input :age, required: false %>
+        <%= f.input :adopted, collection: [true, false], required: false %>
         <%= f.input :sterilised, collection: ["Yes", "No"], required: false %>
         <%= f.input :overview, required: false %>
         <%= f.input :photos, as: :file, input_html: { multiple: true }, required: false %>
