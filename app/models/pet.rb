@@ -1,7 +1,7 @@
 class Pet < ApplicationRecord
   belongs_to :shelter
   has_many :likes, dependent: :destroy
-  has_many :photos
+  has_many_attached :photos
 
   validates :name, presence: true
   validates :animal, presence: true

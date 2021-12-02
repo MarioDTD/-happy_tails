@@ -8,7 +8,8 @@ class CreatePets < ActiveRecord::Migration[6.1]
       t.integer :fee
       t.integer :age
       t.string :sterilised
-      t.string :image_url
+      t.string :gender
+      t.text :overview
       t.boolean :adopted, default: false
       t.references :shelter, null: false, foreign_key: true
 

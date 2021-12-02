@@ -1,7 +1,9 @@
 <div class="cards mt-3">
   <% @pets.each do |pet| %>
       <div class="card">
-        <img src="<%= pet.image_url%>" class="card-img-top" alt="<%= pet.name%>">
+        <% pet.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
+        <% end %>
         <div class="card-body">
          <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet) %></h5>
          <p class="card-text text-center"><%= pet.breed %><br>$<%= pet.fee %></p>
