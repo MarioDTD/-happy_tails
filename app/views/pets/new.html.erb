@@ -11,6 +11,7 @@
         <%= f.input :age %>
         <%= f.input :sterilised, collection: ["Yes", "No"]  %>
         <%= f.input :overview %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Create new listing", class: "btn btn-primary" %>
       <% end %>
     </div>
