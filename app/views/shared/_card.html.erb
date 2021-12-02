@@ -4,7 +4,7 @@
         <%= cl_image_tag pet.photos.first.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
 
         <div class="card-body">
-         <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet) %></h5>
+         <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet)%></h5>
          <p class="card-text text-center"><%= pet.breed %>
           <br>$<%= pet.fee %>
           <br><%= pet.gender %>

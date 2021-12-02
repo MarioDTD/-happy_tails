@@ -74,3 +74,9 @@
 .card > img {
   height: 10rem;
 }
+
+.card:hover {
+  transition: 0.7s;
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
