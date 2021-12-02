@@ -3,16 +3,24 @@
     <div class="col-4">
       <form action="#" method="get">
         <label for="breed">Breed</label>
-          <select name="pet_breed">
+          <select name="breed">
             <% @pet_breed.each.uniq do |breed| %>
               <option value="<%= breed %>"><%= breed %></option>
             <% end %>
+          </select>
+          <select name="gender">
+            <option value=""></option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
         <input name="Submit" type="submit" value="Search"/>
       </form>
     </div>
     <div class="col-8">
-      <%= render partial: "shared/card", locals: {pets: @dogs}%>
+      <%#= render partial: "shared/card", locals: {pets: @dogs}%>
+      <div class="cards mt-3">
+        <%= render @pets %>
+      </div>
     </div>
   </div>
 </div>
