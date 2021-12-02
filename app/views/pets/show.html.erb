@@ -65,7 +65,7 @@
         <%= f.input :gender, required: false %>
         <%= f.input :fee, required: false %>
         <%= f.input :age, required: false %>
-        <%= f.input :adopted, collection: [true, false], required: false %>
+        <%= f.input :adopted, collection: [["Adopted", true], ["Available", false]], required: false %>
         <%= f.input :sterilised, collection: ["Yes", "No"], required: false %>
         <%= f.input :overview, required: false %>
         <%= f.input :photos, as: :file, input_html: { multiple: true }, required: false %>
