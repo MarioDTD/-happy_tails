@@ -6,7 +6,12 @@
             <select name="breed" class="form-control">
                 <option value="">--- select breed ---</option>
               <% @pet_breed.each.uniq do |breed| %>
-                <option value="<%= breed %>"><%= breed %></option>
+                <option
+                  value="<%= breed %>"
+                  <%= @breed == breed ? "selected" : "" %>
+                  >
+                  <%= breed %>
+                </option>
             <% end %>
           </select>
         </div>
@@ -23,7 +28,9 @@
        <div class="col form-group">
         <input type="number" placeholder="Max age" name="age[max_age]" value="<%= @max_age %>" class="form-control">
         </div>
-        <input name="Submit" type="submit" value="Search" class="btn btn-primary"/>
+        <div class="col form-group">
+          <input name="Submit" type="submit" value="Search" class="btn btn-primary"/>
+        </div>
       </form>
     </div>
     <div class="col-8">

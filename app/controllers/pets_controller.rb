@@ -30,8 +30,8 @@ class PetsController < ApplicationController
 
     @dogs = Pet.where(animal: "Dog")
     @pet_breed = []
-    @min_age = params[:age] ? params[:age][:min_age] : ""
-    @max_age = params[:age] ? params[:age][:max_age] : ""
+
+    pet_scopes
 
     @dogs.each do |breed|
       @pet_breed << breed.breed
@@ -43,8 +43,8 @@ class PetsController < ApplicationController
 
     @cats = Pet.where(animal: "Cat")
     @pet_breed = []
-    @min_age = params[:age] ? params[:age][:min_age] : ""
-    @max_age = params[:age] ? params[:age][:max_age] : ""
+
+    pet_scopes
 
     @cats.each do |breed|
       @pet_breed << breed.breed
@@ -68,5 +68,12 @@ class PetsController < ApplicationController
 
   def pet_params
     params.require(:pet).permit(:name, :animal, :breed, :color, :gender, :overview, :adopted, :fee, :age, :sterilised, photos: [])
+  end
+
+  def pet_scopes
+    @min_age = params[:age] ? params[:age][:min_age] : ""
+    @max_age = params[:age] ? params[:age][:max_age] : ""
+    @breed = params[:breed] ? params[:breed] : ""
+    @gender = params[:gender] ? params[:gender] : ""
   end
 end
