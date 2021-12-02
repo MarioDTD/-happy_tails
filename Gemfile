@@ -36,7 +36,6 @@ gem 'faker'
 gem 'pundit'
 gem 'has_scope'
 gem 'cloudinary', '~> 1.16.0'
-gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do
   gem 'pry-byebug'
