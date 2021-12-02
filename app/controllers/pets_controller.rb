@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   has_scope :breed
-  has_scope :animal
+  has_scope :age, using: %i[min_age max_age], type: :hash
 
   def index
     @pets = Pet.all
@@ -25,39 +25,29 @@ class PetsController < ApplicationController
   end
 
   def dogs
+    @pets = apply_scopes(Pet).animal("dog")
 
-    # if params[:gender].present?
-      @pets = Pet.animal("dog").breed(params[:breed])
-    # else
-    #   @pets = Pet.animal("dog").breed(params[:breed])
-    # end
-
-    # @all_dogs = Pet.where(animal: "Dog")
-    # @dogs = apply_scopes(Pet).where(animal: "Dog")
-    # @pets = @all_dogs.all
+    @dogs = Pet.where(animal: "Dog")
     @pet_breed = []
+    @min_age = params[:age] ? params[:age][:min_age] : ""
+    @max_age = params[:age] ? params[:age][:max_age] : ""
 
-    @pets.each do |breed|
+    @dogs.each do |breed|
       @pet_breed << breed.breed
     end
   end
 
   def cats
-    @pets = Pet.animal('cat')
-    # @all_cats = Pet.where(animal: "Cat")
-    # if params[:pet_breed].present?
-    #   @cats = Pet.where(breed: params[:pet_breed])
-    # else
-    #   @cats = @all_cats
-    # end
+    @pets = apply_scopes(Pet).animal("cat")
 
-    # @cats = Pet.where(animal: "Cat")
-    # @pets = @all_cats.all
-    # @pet_breed = []
+    @cats = Pet.where(animal: "Cat")
+    @pet_breed = []
+    @min_age = params[:age] ? params[:age][:min_age] : ""
+    @max_age = params[:age] ? params[:age][:max_age] : ""
 
-    # @pets.each do |breed|
-    #   @pet_breed << breed.breed
-    # end
+    @cats.each do |breed|
+      @pet_breed << breed.breed
+    end
   end
 
   def update
