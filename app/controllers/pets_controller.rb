@@ -63,10 +63,9 @@ class PetsController < ApplicationController
     # redirect to the shelter page listing of pets
   end
 
-
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :animal, :breed, :color, :fee, :age, :sterilised, photos: [], :adopted)
+    params.require(:pet).permit(:name, :animal, :breed, :color, :fee, :age, :sterilised, :adopted, photos: [])
   end
 end
