@@ -5,6 +5,8 @@
   <div class="card-body">
     <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet) %></h5>
     <p class="card-text text-center"><%= pet.breed %><br>$<%= pet.fee %></p>
+    <p class="card-text text-center"><%= pet.gender %></p>
+    <p class="card-text text-center"><%= pet.age %> years old</p>
   </div>
   <% if !current_user.nil? %>
     <% if (current_user.like_ids & pet.like_ids).any? %>
