@@ -6,10 +6,11 @@
         <%= f.input :animal, collection: ["Cat", "Dog"] %>
         <%= f.input :breed %>
         <%= f.input :color %>
+        <%= f.input :gender %>
         <%= f.input :fee %>
         <%= f.input :age %>
         <%= f.input :sterilised, collection: ["Yes", "No"]  %>
-        <%= f.input :image_url %>
+        <%= f.input :overview %>
         <%= f.submit "Create new listing", class: "btn btn-primary" %>
       <% end %>
     </div>
