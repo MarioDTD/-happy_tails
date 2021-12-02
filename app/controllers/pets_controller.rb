@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
   has_scope :breed
   has_scope :age, using: %i[min_age max_age], type: :hash
+  has_scope :gender
 
   def index
     @pets = Pet.all
@@ -66,6 +67,6 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :animal, :breed, :color, :fee, :age, :sterilised, :adopted, photos: [])
+    params.require(:pet).permit(:name, :animal, :breed, :color, :gender, :overview, :adopted, :fee, :age, :sterilised, photos: [])
   end
 end
