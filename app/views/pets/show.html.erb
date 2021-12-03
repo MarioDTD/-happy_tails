@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container mt-2">
+  <%= link_to "Back to shelter", shelter_path(@pet.shelter) %>
   <div id="carouselExampleControls" class="carousel" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -27,17 +28,16 @@
 
 
 <div class="container">
-  <h1><%= @pet.name %></h1>
+  <h1><%= @pet.name %>
 
   <% if !current_user.nil? %>
     <% if (current_user.like_ids & @pet.like_ids).any? %>
       <%= link_to icon("fas","heart"), pet_like_path(@pet, Like.find_by_pet_id(@pet)), method: :delete %>
     <% else %>
       <%= link_to icon("far","heart"), pet_likes_path(@pet), method: :post %>
+    <% end %>
   <% end %>
-<% end %>
-
-
+  </h1>
 
 <ul>
 <li>Breed: <%= @pet.breed %></li>
