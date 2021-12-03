@@ -6,13 +6,13 @@
         <%= f.input :animal, collection: ["Cat", "Dog"] %>
         <%= f.input :breed %>
         <%= f.input :color %>
-        <%= f.input :gender %>
+        <%= f.input :gender, collection: ["Female", "Male"]%>
         <%= f.input :fee %>
         <%= f.input :age %>
         <%= f.input :sterilised, collection: ["Yes", "No"]  %>
         <%= f.input :overview %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-        <%= f.submit "Create new listing", class: "btn btn-primary" %>
+        <%= f.submit "Create new listing", class: "btn btn-ghost" %>
       <% end %>
     </div>
   </div>
