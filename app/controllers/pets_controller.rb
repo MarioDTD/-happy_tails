@@ -4,7 +4,7 @@ class PetsController < ApplicationController
   has_scope :gender
 
   def index
-    @pets = Pet.all
+    @pets = Pet.all.reject(&:adopted)
   end
 
   def new
@@ -26,7 +26,7 @@ class PetsController < ApplicationController
   end
 
   def dogs
-    @pets = apply_scopes(Pet).animal("dog")
+    @pets = apply_scopes(Pet).animal("dog").reject(&:adopted)
 
     @dogs = Pet.where(animal: "Dog")
     @pet_breed = []
@@ -39,7 +39,7 @@ class PetsController < ApplicationController
   end
 
   def cats
-    @pets = apply_scopes(Pet).animal("cat")
+    @pets = apply_scopes(Pet).animal("cat").reject(&:adopted)
 
     @cats = Pet.where(animal: "Cat")
     @pet_breed = []
