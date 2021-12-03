@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 mx-auto">
-      <%= simple_form_for @shelter do |f| %>
+      <%= simple_form_for(@shelter, remote: true) do |f| %>
         <%= f.input :name %>
         <%= f.input :address %>
         <%= f.input :contact %>

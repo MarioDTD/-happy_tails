@@ -63,7 +63,7 @@
 <% if !current_user.nil? %>
   <% if current_user.shelter == @pet.shelter %>
     <div class="container">
-      <%= simple_form_for(@pet) do |f| %>
+      <%= simple_form_for(@pet, remote: true) do |f| %>
         <%= f.input :name, required: false %>
         <%= f.input :breed, required: false %>
         <%= f.input :color, required: false %>
