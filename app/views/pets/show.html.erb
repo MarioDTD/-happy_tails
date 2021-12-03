@@ -74,12 +74,12 @@
         <%= f.input :sterilised, collection: ["Yes", "No"], required: false %>
         <%= f.input :overview, required: false %>
         <%= f.input :photos, as: :file, input_html: { multiple: true }, required: false %>
-        <%= f.submit %>
+        <%= f.submit class: "btn btn-ghost" %>
       <% end %>
       <%= link_to "Unlist Pet",
                     pet_path(@pet),
                     method: :delete,
-                    data: { confirm: "Are you sure?" }, class: "btn btn-danger mt-2" %>
+                    data: { confirm: "Are you sure?" }, class: "btn btn-ghost-danger mt-2" %>
   <% end %>
   </div>
 <% end %>
