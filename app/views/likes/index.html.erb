@@ -3,7 +3,9 @@
   <div class="cards mt-3">
     <% @likes.each do |like| %>
         <div class="card">
+        <%= link_to pet_path(like.pet) do %>
           <%= cl_image_tag like.pet.photos.first.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
+        <% end %>
           <div class="card-body">
           <h5 class="card-title text-center"><%= link_to like.pet.name, pet_path(like.pet) %>
           <% if !current_user.nil? %>
