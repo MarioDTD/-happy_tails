@@ -15,7 +15,7 @@
         </li>
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "user-solid.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <% if current_user.admin? %>
               <% @shelter = Shelter.find_by_user_id(current_user) %>
