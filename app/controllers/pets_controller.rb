@@ -16,9 +16,11 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     @shelter = current_user.shelter
     @pet.shelter = @shelter
-    @pet.save!
-    # remember to INCLUDE redirect to the shelter/show pet page after this pet is created
-    redirect_to pet_path(@pet)
+    if @pet.save
+      redirect_to pet_path(@pet)
+    else
+      render :new
+    end    
   end
 
   def show
