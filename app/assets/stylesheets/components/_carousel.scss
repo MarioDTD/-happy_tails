@@ -3,6 +3,17 @@
   filter: invert(100%);
 }
 
+.carousel-control-next {
+ margin-right: 100px;
+}
+
+.carousel-control-prev {
+  margin-left: 100px;
+
+}
+
 .carousel-indicators {
   filter: invert(100%);
+  position: relative;
+  top: 340px;
 }
