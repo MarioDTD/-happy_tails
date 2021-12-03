@@ -55,8 +55,8 @@
 <ul>
 <li>Name: <%= link_to @pet.shelter.name, shelter_path(@pet.shelter) %></li>
 <li>Address: <%= @pet.shelter.address %></li>
-<li><a href="tel:<%= @pet.shelter.contact %>">Contact: <%= @pet.shelter.contact %></a></li>
-<li><a href="mailto:<%= @pet.shelter.email %>">Email: <%= @pet.shelter.email %></a></p></li>
+<li><span>Contact: </span><a href="tel:<%= @pet.shelter.contact %>"><%= @pet.shelter.contact %></a></li>
+<li><span>Email: </span><a href="mailto:<%= @pet.shelter.email %>"><%= @pet.shelter.email %></a></p></li>
 
 </ul>
 </div>

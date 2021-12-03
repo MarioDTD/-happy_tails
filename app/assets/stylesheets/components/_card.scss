@@ -15,6 +15,8 @@
 
 .card-img-top {
   object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .cards {
@@ -73,6 +75,11 @@
 
 .card > img {
   height: 10rem;
+}
+
+.card {
+  background-color: #f6f6eed8;
+  border-radius: 5px;
 }
 
 .card:hover {
