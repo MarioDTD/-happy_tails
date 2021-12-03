@@ -4,7 +4,9 @@
     <li>Address: <%= @shelter.address %></li>
     <li>Contact: <%= @shelter.contact %></li>
     <li>Email: <%= @shelter.email %></li>
-    <%= link_to "Add new pet", new_shelter_pet_path(@shelter), class: "btn btn-flat mt-3"%>
+    <% if !current_user.shelter.nil? || current_user.shelter == @shelter %>
+      <%= link_to "Add new pet", new_shelter_pet_path(@shelter), class: "btn btn-flat mt-3"%>
+    <% end %>
   </ul>
 </div>
 
@@ -49,9 +51,9 @@
     <% @shelter.pets.each do |pet| %>
       <% if pet.adopted == true %>
         <div class="card">
-        <%= link_to pet_path(pet) do %>
-          <%= cl_image_tag pet.photos.first.key, height: 300, width: 400, crop: :fill, class:"card-img-top" %>
-        <% end %>
+          <%= link_to pet_path(pet) do %>
+            <%= cl_image_tag pet.photos.first.key, height: 300, width: 400, crop: :fill, class:"card-img-top" %>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet) %>
             <% if !current_user.nil? %>
