@@ -3,16 +3,17 @@
     <%= cl_image_tag pet.photos.first.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
   <% end %>
   <div class="card-body">
-    <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet) %></h5>
+    <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet) %>
+    <% if !current_user.nil? %>
+      <% if (current_user.like_ids & pet.like_ids).any? %>
+        <%= link_to icon("fas","heart"), pet_like_path(pet, Like.find_by_pet_id(pet)), method: :delete,  class: "ml-2" %>
+      <% else %>
+        <%= link_to icon("far","heart"), pet_likes_path(pet.id), method: :post, class: "ml-2" %>
+      <% end %>
+    <% end %>
+  </h5>
     <p class="card-text text-center"><%= pet.breed %><br>$<%= pet.fee %></p>
     <p class="card-text text-center"><%= pet.gender %></p>
     <p class="card-text text-center"><%= pet.age %> years old</p>
   </div>
-  <% if !current_user.nil? %>
-    <% if (current_user.like_ids & pet.like_ids).any? %>
-      <%= link_to icon("fas","heart"), pet_like_path(pet, Like.find_by_pet_id(pet)), method: :delete,  class: "ml-2" %>
-    <% else %>
-      <%= link_to icon("far","heart"), pet_likes_path(pet.id), method: :post, class: "ml-2" %>
-    <% end %>
-  <% end %>
 </div>

@@ -5,16 +5,16 @@
         <div class="card">
           <%= cl_image_tag like.pet.photos.first.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
           <div class="card-body">
-          <h5 class="card-title text-center"><%= link_to like.pet.name, pet_path(like.pet) %></h5>
-          <p class="card-text text-center"><%= like.pet.breed %><br>$<%= like.pet.fee %></p>
-          </div>
+          <h5 class="card-title text-center"><%= link_to like.pet.name, pet_path(like.pet) %>
           <% if !current_user.nil? %>
             <% if (current_user.like_ids & like.pet.like_ids).any? %>
               <%= link_to icon("fas","heart"), pet_like_path(like.pet, Like.find_by_pet_id(like.pet)), method: :delete,  class: "ml-2" %>
             <% else %>
               <%= link_to icon("far","heart"), pet_likes_path(like.pet.id), method: :post, class: "ml-2" %>
             <% end %>
-          <% end %>
+          <% end %></h5>
+          <p class="card-text text-center"><%= like.pet.breed %><br>$<%= like.pet.fee %></p>
+          </div>
         </div>
     <% end %>
   </div>
