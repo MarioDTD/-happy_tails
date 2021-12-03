@@ -29,7 +29,6 @@
 
 <div class="container">
   <h1><%= @pet.name %>
-
   <% if !current_user.nil? %>
     <% if (current_user.like_ids & @pet.like_ids).any? %>
       <%= link_to icon("fas","heart"), pet_like_path(@pet, Like.find_by_pet_id(@pet)), method: :delete %>
@@ -38,6 +37,7 @@
     <% end %>
   <% end %>
   </h1>
+  <p class="share btn btn-ghost">Share <span class="shared-span d-none"> -> url copied to the clipboard! </span></p>
 
 <ul>
 <li>Breed: <%= @pet.breed %></li>
