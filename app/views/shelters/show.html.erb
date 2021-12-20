@@ -6,6 +6,41 @@
     <li>Email: <%= @shelter.email %></li>
     <% if !current_user.shelter.nil? || current_user.shelter == @shelter %>
       <%= link_to "Add new pet", new_shelter_pet_path(@shelter), class: "btn btn-flat mt-3"%>
+
+      <%# trying to add new post on a button %>
+      <button type="button" class="btn-show btn-lg fas fa-pencil-alt" data-toggle="modal" data-target="#exampleModal"></button>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content new-post-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create new post</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <%= simple_form_for [@shelter, @pet] do |f| %>
+                <%= f.input :name %>
+                <%= f.input :animal, collection: ["Cat", "Dog"] %>
+                <%= f.input :breed %>
+                <%= f.input :color %>
+                <%= f.input :gender, collection: ["Female", "Male"]%>
+                <%= f.input :fee %>
+                <%= f.input :age %>
+                <%= f.input :sterilised, collection: ["Yes", "No"]  %>
+                <%= f.input :overview %>
+                <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+                <%= f.submit "Create new listing", class: "btn btn-ghost" %>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
     <% end %>
   </ul>
 </div>
