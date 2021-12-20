@@ -61,3 +61,13 @@
   background: linear-gradient(#147eff, #0f67da);
   color: white;
 }
+
+.btn-primary {
+  background-color: #77d4d4;
+  border: none;
+}
+
+.btn-primary:hover {
+  text-decoration: none;
+  background-color: #4ad4d4;
+}
