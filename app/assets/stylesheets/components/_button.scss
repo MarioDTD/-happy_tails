@@ -36,15 +36,15 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #77d4d4;
+  background: $main;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: #2fd4d4;
+  background: #ca7fda;
   color: white;
-  transition: 0.5s;
-  transform: translateY(0) scale(1.1);
+  transition: 0.2s;
+  transform: translateY(0) scale(1.04);
 }
 
 .btn-gradient {
@@ -63,11 +63,11 @@
 }
 
 .btn-primary {
-  background-color: #77d4d4;
+  background-color: $main;
   border: none;
 }
 
 .btn-primary:hover {
   text-decoration: none;
-  background-color: #4ad4d4;
+  background-color: #ca7fda;
 }

@@ -8,23 +8,25 @@ $orange: #e67e22;
 $green: #1edd88;
 $gray: #0e0000;
 $light-gray: #f4f4f4;
+$main: #d694e3;
+$purple-blue: #8f97bb;
 
 .pet-title {
-  color: #387d7d;
+  color: $main;
 }
 
 .pet-title:hover {
-  color: #026666;
+  color: #828bb1;
 }
 
 .heart-icon {
-  color: #387d7d;
+  color: $purple-blue;
 }
 
 .heart-icon:hover {
-  color: #026666;
+  color: #828bb1;
 }
 
 .card-title {
-  color: #387d7d;
+  color: $purple-blue;
 }

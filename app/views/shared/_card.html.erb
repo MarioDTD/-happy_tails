@@ -15,9 +15,8 @@
           <% end %>
           </h5>
          <p class="card-text text-center"><%= pet.breed %>
+          <br><%= pet.gender %>, <%= pluralize(pet.age, 'year') %> old
           <br>$<%= pet.fee %>
-          <br><%= pet.gender %>
-          <br><%= pluralize(pet.age, 'year') %> old
           </p>
         </div>
        </div>

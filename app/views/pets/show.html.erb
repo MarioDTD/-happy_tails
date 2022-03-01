@@ -28,7 +28,7 @@
 
 
 
-<div class="container">
+<div class="container mt-3">
   <h1><%= @pet.name %>
   <% if !current_user.nil? %>
     <% if (current_user.like_ids & @pet.like_ids).any? %>
